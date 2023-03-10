@@ -8,9 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AuthorizationPage;
-import pages.CartPage;
-import pages.CheckoutPage;
-import pages.MainPage;
 
 @Epic("Тесты сайта saucedemo")
 
@@ -25,7 +22,6 @@ public class IncorrectLoginTest {
     public void driver() {
         driver = GetChromeDriver.getChromeDriver();
         driver.manage().window().maximize();
-        driver.get(Constants.MAIN_PAGE);
         authorizationPage = new AuthorizationPage(driver);
         driver.get(Constants.MAIN_PAGE);
     }
@@ -38,7 +34,7 @@ public class IncorrectLoginTest {
         authorizationPage.fillingUsernameInput("test")
                 .fillingPasswordInput("test")
                 .clickLoginButton()
-                .checkLoginOrPasswordNotMatchErrorVisible();
+                .waitingLoginOrPasswordNotMatchErrorVisible();
     }
 
     @AfterMethod

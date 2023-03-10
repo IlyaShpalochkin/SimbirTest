@@ -34,8 +34,8 @@ public class AuthorizationPage {
     @FindBy(xpath = "//h3[contains(text(),'Epic sadface: Username and password do not match')]")
     private WebElement loginOrPasswordNotMatchError;
 
-    @Step("Проверка видимости ошибки: Epic sadface: Username and password do not match any user in this service")
-    public AuthorizationPage checkLoginOrPasswordNotMatchErrorVisible() {
+    @Step("Ожидание пяовлеия ошибки: Epic sadface: Username and password do not match any user in this service")
+    public AuthorizationPage waitingLoginOrPasswordNotMatchErrorVisible() {
         Waiting.waitingElementDisplay(loginOrPasswordNotMatchError, driver);
         return this;
     }
